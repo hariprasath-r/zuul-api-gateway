@@ -1,0 +1,3 @@
+server:
+  port: ${PORT:8861}
+  error.include-stacktrace: never
