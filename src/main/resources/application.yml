@@ -2,6 +2,8 @@ server:
   port: ${PORT:8861}
   error.include-stacktrace: never
 
+swagger.enabled: true
+
 zuul:
   host:
     connect-timeout-millis: 5000000
