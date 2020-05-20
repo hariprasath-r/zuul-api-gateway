@@ -1,5 +1,6 @@
 package in.hp.boot.zuulapigateway;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
  */
 @Configuration
 @Primary
+@Slf4j
 public class SwaggerConfig implements SwaggerResourcesProvider {
 
     @Autowired
@@ -29,6 +31,7 @@ public class SwaggerConfig implements SwaggerResourcesProvider {
             resource.setLocation(route.getFullPath().replace("**", "v2/api-docs"));
             resource.setSwaggerVersion("2.0");
             return resource;
-        }).collect(Collectors.toList());
+        }).peek(x -> log.info(String.valueOf(x)))
+                .collect(Collectors.toList());
     }
 }
