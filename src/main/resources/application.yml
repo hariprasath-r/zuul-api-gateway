@@ -1,20 +1,3 @@
 server:
   port: ${PORT:8861}
   error.include-stacktrace: never
-
-swagger.enabled: true
-
-zuul:
-  host:
-    connect-timeout-millis: 5000000
-    socket-timeout-millis: 5000000
-  ignoredServices: '*'
-  routes:
-    movie-catalog-service:
-      path: /movie-catalog/**
-      serviceId: movie-catalog-service
-      stripPrefix: true
-    user-info-service:
-      path: /user-info/**
-      serviceId: user-info-service
-      stripPrefix: true
