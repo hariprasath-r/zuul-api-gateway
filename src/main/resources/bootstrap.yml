@@ -1,8 +1,9 @@
 spring:
   application.name: zuul-api-gateway
-  profiles.active: default
+  profiles.active: jpop
   cloud:
     config:
+      enabled: false
       uri: http://localhost:8899
       fail-fast: true
       retry:

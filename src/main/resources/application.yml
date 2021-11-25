@@ -1,3 +1,26 @@
 server:
   port: ${PORT:8861}
   error.include-stacktrace: never
+
+eureka.client.registryFetchIntervalSeconds: 5
+
+swagger.enable: true
+
+zuul:
+  host:
+    connect-timeout-millis: 5000000
+    socket-timeout-millis: 5000000
+  ignoredServices: '*'
+  routes:
+    library-service:
+      path: /library-api/**
+      serviceId: library-service
+      stripPrefix: false
+    book-service:
+      path: /book-api/**
+      serviceId: book-service
+      stripPrefix: false
+    user-service:
+      path: /user-api/**
+      serviceId: user-service
+      stripPrefix: true
